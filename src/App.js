@@ -3,8 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 
 function App() {
-  const [todo, Settodo] = useState([]);
-  const [inputValue, SetinputValue] = useState("");
+  const [todo, SetTodo] = useState([]);
+  const [inputValue, SetInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+console.log(event.target.value);
+  }
 
   return (
     <div className="App">
@@ -13,7 +17,7 @@ function App() {
         <div id="upperSection">
           <h1 id="title">To-Do list</h1>
           <div id="inputSection">
-            <input id="inputBox" placeholder="Add a new task ..." />
+            <input id="inputBox" placeholder="Add a new task ..."  value={inputValue} onchange={handleInputChange}/>
             <button id="addButton">Add</button>
           </div>
           <div id="taskStatusSection">
