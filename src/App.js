@@ -24,7 +24,7 @@
 //           <div id="inputSection">
 //             <input id="inputBox" placeholder="Add a new task ..."  value={inputValue} onchange={handleInputChange}/>
 //             <button id="addButton" onClick={handleAddButton}>Add</button>
-//             {todo.map((todo) => { 
+//             {todo.map((todo) => {
 //                 return <div>{todo}</div>; })}
 //           </div>
 //           <div id="taskStatusSection">
@@ -47,20 +47,32 @@
 
 // export default App;
 
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
   const handleAddButtonClick = () => {
-    setTodos([...todos, inputValue]);
-    setInputValue('');
+    if (inputValue.length === 0) {
+      setError("Please Enter Task");
+      return;
+    } else {
+      setError("");
+      setTodos([...todos, inputValue]);
+      setInputValue("");
+    }
+  };
+
+  const handleCheckBox = (event) => {
+    console.log(event);
   };
 
   return (
@@ -76,12 +88,17 @@ function App() {
               value={inputValue}
               onChange={handleInputChange}
             />
+            {error.length > 1 && <div>{error}</div>}
             <button id="add-button" onClick={handleAddButtonClick}>
               Add
             </button>
           </div>
           {todos.map((todo, index) => (
-            <div key={index}>{todo}</div>
+            <div key={index}>
+              {" "}
+              <input type="checkbox" onChange={handleCheckBox}></input>
+              {todo}
+            </div>
           ))}
         </div>
         <div id="task-states-section">
@@ -98,4 +115,3 @@ function App() {
 }
 
 export default App;
-
