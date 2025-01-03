@@ -1,10 +1,7 @@
-
-
-
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,16 +9,15 @@ body {
 
 #container {
   width: 377px;
-  height: 290px;
   background-color: #fff;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 #upper-section {
   width: 345px;
-  height: 187px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -63,13 +59,32 @@ body {
   width: 345px;
   height: 42px;
   gap: 6px;
+  margin-top: 30px;
 }
 
-#all-tasks-button,
-#active-tasks-button,
+#all-tasks-button
+{
+  width: 37px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: #F3F4F6;
+  color: #363636;
+  font-size: 12px;
+}
+#active-tasks-button
+{
+  width: 56px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: #F3F4F6;
+  color: #363636;
+  font-size: 12px;
+}
 #completed-tasks-button
  {
-  width: 98px;
+  width: 82px;
   height: 32px;
   border: none;
   border-radius: 6px;
@@ -89,6 +104,24 @@ button.active {
     color: #F9F9F9;
   }
 
+  #task-list-container {
+    width: 345px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  #list-container{
+    width: 345px;
+    height: 62px;
+    background-color: #F3F4F6;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+
 
 #number-of-tasks-section {
   width: 347px;
@@ -99,6 +132,8 @@ button.active {
   text-align: center;
   color: #6B7280;
   font-size: 14px;
+  font-weight: 500;
+  margin-top: 40px;
 }
 
 #lower-section {
