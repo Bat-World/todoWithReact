@@ -35,6 +35,15 @@ function App() {
     }
   };
 
+
+const handlePressKey = (event) => {
+  if (event.key === "Enter"){
+    handleAddButtonClick();
+  }
+} 
+
+
+
   const handleCheckBox = (event) => {
     if (event.target.checked) {
       setNumberOfCompletedTasks(numOfCompletedTasks + 1);
@@ -73,6 +82,7 @@ const newTodos = todos.map((todos) => {
               placeholder="Add a new task....."
               value={inputValue}
               onChange={handleInputChange}
+              onKeyDown={handlePressKey} 
               autoComplete="off"
             />
             {error.length > 1 && <div>{error}</div>}
