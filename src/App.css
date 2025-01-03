@@ -1,116 +1,4 @@
-/* body {
-  padding: 0;
-  margin: 0;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-
-#container{
-width: 377px;
-height: 290px;
-background-color: #fff;
-display: flex;
-justify-content: center;
-flex-direction: column;
-
-}
-
-#upperSection{
-  width: 345px;
-  height: 187px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-#title {
-  text-align: center;
-  font-size: 20px;
-  line-height: 28px;
-}
-
-#inputSection{
-  display: flex;
-  flex-direction: row;
-  width: 345px;
-  height: 38px;
-  gap: 6px;
-}
-
-#inputBox{
-width: 280px;
-height: 40px;
-border-radius: 6px;
-border: 1px solid  #E4E4E7;
-}
-
-
-
-#addButton{
-width: 60px;
-height: 40px;
-background-color: #3C82F6;
-color: white;
-border-radius: 6px;
-border: none;
-}
-
-#taskStatusSection {
-  display: flex;
-  flex-direction: row;
-  width: 345px;
-  height: 42px;
-  gap: 6px;
-}
-
-#allTasksButton {
-  width: 38px;
-  height: 32px;
-  border: none;
-  border-radius: 6px;
-  background-color: #3C82F6;
-  color: #fff;
-  font-size: 12px;
-}
-
-#activeTasksButton {
-  width: 60px;
-  height: 32px;
-  border: none;
-  border-radius: 6px;
-  background-color: #F3F4F6;
-  color: #363636;
-  font-size: 12px;
-}
-
-#completedTasksButton {
-  width: 87px;
-  height: 32px;
-  border: none;
-  border-radius: 6px;
-  background-color: #F3F4F6;
-  color: #363636;
-  font-size: 12px;
-}
-
-#numberOfTasksSection {
-width: 347px;
-height: 17px;
-}
-
-#numberOfTasksP {
-text-align: center;
-color: #6B7280;
-font-size: 14px;
-}
-
-#lowerSection{
-  width: 345px;
-  height: 15px;
-} */
 
 
 body {
@@ -177,17 +65,10 @@ body {
   gap: 6px;
 }
 
-#all-tasks-button {
-  width: 98px;
-  height: 32px;
-  border: none;
-  border-radius: 6px;
-  background-color: #3C82F6;
-  color: #fff;
-  font-size: 12px;
-}
-
-#active-tasks-button {
+#all-tasks-button,
+#active-tasks-button,
+#completed-tasks-button
+ {
   width: 98px;
   height: 32px;
   border: none;
@@ -197,15 +78,17 @@ body {
   font-size: 12px;
 }
 
-#completed-tasks-button {
-  width: 98px;
-  height: 32px;
-  border: none;
-  border-radius: 6px;
-  background-color: #F3F4F6;
-  color: #363636;
-  font-size: 12px;
+#all-tasks-button:hover,
+#active-tasks-button:hover,
+#completed-tasks-button:hover{
+  background-color: #e0e0e0;
 }
+
+button.active {
+    background-color: #3C82F6;
+    color: #F9F9F9;
+  }
+
 
 #number-of-tasks-section {
   width: 347px;
