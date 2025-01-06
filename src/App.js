@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState("");
   const [numberOfTasks, setNumberOfTasks] = useState(0);
   const [numOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
-  const [filterState, setFilterState] = useState("All")
+  const [filterState, setFilterState] = useState("All");
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -35,19 +35,15 @@ function App() {
     }
   };
 
-
-const handlePressKey = (event) => {
-  if (event.key === "Enter"){
-    handleAddButtonClick();
-  }
-} 
-
-
+  const handlePressKey = (event) => {
+    if (event.key === "Enter") {
+      handleAddButtonClick();
+    }
+  };
 
   const handleCheckBox = (event) => {
     if (event.target.checked) {
       setNumberOfCompletedTasks(numOfCompletedTasks + 1);
-
     } else {
       setNumberOfCompletedTasks(numOfCompletedTasks - 1);
     }
@@ -64,19 +60,16 @@ const handlePressKey = (event) => {
       return todo;
     });
     setTodos(newTodos);
-  
-    
-    const completedCount = newTodos.filter((todo) => todo.status === "COMPLETED")
-      .length;
+
+    const completedCount = newTodos.filter(
+      (todo) => todo.status === "COMPLETED"
+    ).length;
     setNumberOfCompletedTasks(completedCount);
   };
-  
 
   const handleFilterState = (state) => {
     setFilterState(state);
   };
-  
-
 
   return (
     <div className="App">
@@ -89,7 +82,7 @@ const handlePressKey = (event) => {
               placeholder="Add a new task....."
               value={inputValue}
               onChange={handleInputChange}
-              onKeyDown={handlePressKey} 
+              onKeyDown={handlePressKey}
               autoComplete="off"
             />
             {error.length > 1 && <div>{error}</div>}
@@ -99,36 +92,55 @@ const handlePressKey = (event) => {
           </div>
         </div>
         <div id="task-states-section">
-          <button id="all-tasks-button" onClick={() => handleFilterState("All")}    className={filterState === "All" ? "active-filter" : ""}>All</button>
-          <button id="active-tasks-button" onClick={() => handleFilterState("Active")}     className={filterState === "Active" ? "active-filter" : ""}>Active</button>
-          <button id="completed-tasks-button" onClick={() => handleFilterState("Completed")}     className={filterState === "Completed" ? "active-filter" : ""}>Completed</button>
+          <button
+            id="all-tasks-button"
+            onClick={() => handleFilterState("All")}
+            className={filterState === "All" ? "active-filter" : ""}
+          >
+            All
+          </button>
+          <button
+            id="active-tasks-button"
+            onClick={() => handleFilterState("ACTIVE")}
+            className={filterState === "ACTIVE" ? "active-filter" : ""}
+          >
+            Active
+          </button>
+          <button
+            id="completed-tasks-button"
+            onClick={() => handleFilterState("COMPLETED")}
+            className={filterState === "COMPLETED" ? "active-filter" : ""}
+          >
+            Completed
+          </button>
         </div>
 
-       <div id="task-list-container">
-  {todos
-    .filter((todo) => {
-      if (filterState === "All") {
-        return true;
-      } else {
-        return todo.status === filterState;
-      }
-    })
-    .map((todo, index) => (
-      <div id="list-container" key={todo.id}>
-        <input
-          type="checkbox"
-          checked={todo.status === "COMPLETED"}
-          onChange={() => handleBox(todo.id)}
-        />
-        <span className={todo.status === "COMPLETED" ? "completed-task" : ""}>
-          {todo.text}
-        </span>
-      </div>
-    ))}
-</div>
-
-
-
+        <div id="task-list-container">
+          {todos
+            .filter((todo) => {
+              if (filterState === "All") {
+                return true;
+              } else {
+                return todo.status === filterState;
+              }
+            })
+            .map((todo, index) => (
+              <div id="list-container" key={todo.id}>
+                <input
+                  type="checkbox"
+                  checked={todo.status === "COMPLETED"}
+                  onChange={() => handleBox(todo.id)}
+                />
+                <span
+                  className={
+                    todo.status === "COMPLETED" ? "completed-task" : ""
+                  }
+                >
+                  {todo.text}
+                </span>
+              </div>
+            ))}
+        </div>
 
         <div id="number-of-tasks-section">
           {/* Gotta ask from teacher */}
@@ -144,7 +156,5 @@ const handlePressKey = (event) => {
     </div>
   );
 }
-
-
 
 export default App;
