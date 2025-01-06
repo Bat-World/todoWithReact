@@ -15,6 +15,7 @@ function App() {
   const [numberOfTasks, setNumberOfTasks] = useState(0);
   const [numOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
   const [filterState, setFilterState] = useState("All");
+  const [deleteTask, setDeleteTask] = useState();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -69,6 +70,12 @@ function App() {
 
   const handleFilterState = (state) => {
     setFilterState(state);
+  };
+
+  const handleDeleteTask = (id) => {
+    const currentTodos = todos.filter((todos) => todos.id !== id);
+    setTodos(currentTodos);
+    setDeleteTask();
   };
 
   return (
@@ -127,23 +134,39 @@ function App() {
             .map((todo, index) => (
               <div id="list-container" key={todo.id}>
                 <input
+                  id="check-box"
                   type="checkbox"
                   checked={todo.status === "COMPLETED"}
                   onChange={() => handleBox(todo.id)}
                 />
                 <span
+                  id="task-text"
                   className={
                     todo.status === "COMPLETED" ? "completed-task" : ""
                   }
                 >
                   {todo.text}
                 </span>
+
+                <button
+                  id="delete-button"
+                  onClick={() => handleDeleteTask(todo.id)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#434343"
+                  >
+                    <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z" />
+                  </svg>
+                </button>
               </div>
             ))}
         </div>
 
         <div id="number-of-tasks-section">
-          {/* Gotta ask from teacher */}
           {numberOfTasks === 0 ? (
             <p id="number-of-task">No tasks yet. Add one above!</p>
           ) : (
