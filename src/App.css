@@ -11,6 +11,7 @@
   --button-background: #3f51b5;
   --button-text-color: #ffffff;
   --listborderradius-color: white;
+  --inputborder-color: #3c82f6;
 }
 
 body.darkmode {
@@ -23,6 +24,7 @@ body.darkmode {
   --button-background: #3f51b5;
   --button-text-color: #ffffff;
   --listborderradius-color: #1f1f1f;
+  --inputborder-color: #1f1f1f;
 }
 
 
@@ -37,6 +39,28 @@ body {
   box-sizing: border-box;
   padding: 20px;
 }
+
+#header{
+  display: flex;
+  flex-direction: row;
+  width: 377px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#big-title {
+  position: absolute;
+  top: 50%;
+  left: 28%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--title-color);
+}
+
 #container {
   width: 377px;
   background-color: var(--container-background);
@@ -72,27 +96,38 @@ body {
   width: 345px;
   height: 38px;
   gap: 6px;
+
 }
 
 #input-box {
+  outline: none;
   width: 280px;
   height: 36px;
   border-radius: 6px;
   border: 1px solid var(--listborderradius-color);
   background-color:   var(--listcontainer-back);
+  color: var(--title-color);
 }
 
-#input-:focus {
-  border: 1.5px solid var(--buttoncolor-blue);
+#input-box:focus {
+  border-color: var(--listborderradius-color);
+  box-shadow: none;
 }
+
+
 
 #add-button {
   width: 60px;
-  height: 40px;
+  height: 38px;
   background-color: var(--buttoncolor-blue);
   color: var(--buttoncolor-white);
   border-radius: 6px;
   border: none;
+  transition: 0.3s;
+}
+
+#add-button:hover {
+  transform: scale(1.1);
 }
 
 #task-states-section button {
@@ -106,10 +141,12 @@ body {
   padding: 0 10px;
   margin-top: 20px;
   margin-left: 10px;
+  transition: 0.3s;
 }
 
 #task-states-section button:hover {
   background-color: var(--buttoncolor-white);
+  transform: scale(1.1);
 }
 
 #task-states-section button.active-filter {
@@ -138,9 +175,15 @@ body {
 }
 
 #check-box {
+  outline: none;
   position: absolute;
   left: 3%;
   top: 40%;
+}
+
+#check-box:focus {
+  border: none;
+  box-shadow: none;
 }
 
 #task-text {
@@ -157,6 +200,11 @@ border: none;
   background-color: transparent;
   left: 85%;
   top: 30%;
+  transition: 0.3s;
+}
+
+#delete-button:hover{
+  transform: scale(1.2);
 }
 
 #number-of-tasks-section {
@@ -188,5 +236,13 @@ button {
   color: var(--button-text-color);
   border: none;
   border-radius: 6px;
+
+}
+
+#theme-switch {
+background-color: transparent;
+position: absolute;
+top: 50%;
+left: 90%;
 
 }
