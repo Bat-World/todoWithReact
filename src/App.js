@@ -16,6 +16,13 @@ function App() {
   const [numOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
   const [filterState, setFilterState] = useState("All");
   const [deleteTask, setDeleteTask] = useState();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle("darkmode", !isDarkMode);
+  };
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -94,6 +101,9 @@ function App() {
 
   return (
     <div className="App">
+      <button id="theme-switch" onClick={toggleTheme}>
+            {isDarkMode ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button>
       <div id="container">
         <div id="upper-section">
           <h1 id="title">To-Do List</h1>
