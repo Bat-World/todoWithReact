@@ -72,11 +72,25 @@ function App() {
     setFilterState(state);
   };
 
+
+  // Delete task logic
   const handleDeleteTask = (id) => {
-    const currentTodos = todos.filter((todos) => todos.id !== id);
+    // Filter out the task with the specified id
+    const currentTodos = todos.filter((todo) => todo.id !== id);
+  
+    // Update the todos state
     setTodos(currentTodos);
-    setDeleteTask();
+  
+    // Update the overall task count
+    setNumberOfTasks(numberOfTasks - 1);
+  
+    // Update the completed tasks count if the deleted task was completed
+    const deletedTask = todos.find((todo) => todo.id === id);
+    if (deletedTask && deletedTask.status === "COMPLETED") {
+      setNumberOfCompletedTasks(numOfCompletedTasks - 1);
+    }
   };
+  
 
   return (
     <div className="App">
