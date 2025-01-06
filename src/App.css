@@ -120,6 +120,7 @@ button.active {
     border-radius: 5px;
     display: flex;
     align-items: center;
+    gap: 10px;
   }
 
 
@@ -140,3 +141,15 @@ button.active {
   width: 345px;
   height: 15px;
 }
+
+.completed-task {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.active-filter {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
