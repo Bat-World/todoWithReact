@@ -4,14 +4,20 @@
 :root {
   --background-color:  #f3f5f7;
   --container-background: white;
+  --listcontainer-back: #f3f4f6;
+  --buttoncolor-blue: #3c82f6;
+  --buttoncolor-white: #f3f4f6;
+
+
 }
 
 :root.darkmode {
   --background-color:  #151515;
   --container-background: white;
+  --listcontainer-back: #f3f4f6;
+  --buttoncolor-blue: #3c82f6;
+  --buttoncolor-white: #f3f4f6;
 }
-
-
 
 
 body {
@@ -68,14 +74,14 @@ body {
 }
 
 #input-:focus {
-  border: 1.5px solid #3c82f6;
+  border: 1.5px solid var(--buttoncolor-blue);
 }
 
 #add-button {
   width: 60px;
   height: 40px;
-  background-color: #3c82f6;
-  color: white;
+  background-color: var(--buttoncolor-blue);
+  color: var(--buttoncolor-white);
   border-radius: 6px;
   border: none;
 }
@@ -85,7 +91,7 @@ body {
   height: 32px;
   border: none;
   border-radius: 6px;
-  background-color: #f3f4f6;
+  background-color: var(--buttoncolor-white);
   color: #363636;
   font-size: 12px;
   padding: 0 10px;
@@ -94,12 +100,12 @@ body {
 }
 
 #task-states-section button:hover {
-  background-color: #e0e0e0;
+  background-color: var(--buttoncolor-white);
 }
 
 #task-states-section button.active-filter {
-  background-color: #3c82f6;
-  color: white;
+  background-color: var(--buttoncolor-blue);
+  color: var(--buttoncolor-white);
 }
 
 
@@ -114,7 +120,7 @@ body {
 #list-container {
   width: 345px;
   height: 62px;
-  background-color: #f3f4f6;
+  background-color: var(--listcontainer-back);
   border: none;
   border-radius: 5px;
   display: flex;
