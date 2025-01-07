@@ -95,7 +95,7 @@ function App() {
     }
   };
 
-  
+
   // Clearcompleted
 
   const handleClearCompleted = () => {
@@ -254,6 +254,19 @@ function App() {
           )}
           <button id="clearCompleted-button"   onClick={handleClearCompleted}>Clear Completed</button>
         </div>
+        <div id="poweredBy-section">
+  <p id="developedby-text">
+    Developed by
+    <a
+      href="https://github.com/Bat-World"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+    <button id="github-icon">Bat-World</button>
+    </a>
+  </p>
+</div>
+
       </div>
     </div>
   );
