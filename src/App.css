@@ -2,7 +2,7 @@
 
 /* Theme switch  */
 :root {
-  --background-color:  #f3f5f7;
+  --background-color: #f3f5f7;
   --title-color: black;
   --container-background: white;
   --listcontainer-back: #f3f4f6;
@@ -15,10 +15,10 @@
 }
 
 body.darkmode {
-  --background-color:  #151515;
-  --container-background: rgb(0, 0, 0);
+  --background-color: #151515;
+  --container-background: rgb(10, 10, 10);
   --title-color: white;
-  --listcontainer-back: rgb(0,0,0);
+  --listcontainer-back: rgb(0, 0, 0);
   --buttoncolor-blue: #3c82f6;
   --buttoncolor-white: #f3f4f6;
   --button-background: #3f51b5;
@@ -26,7 +26,6 @@ body.darkmode {
   --listborderradius-color: #1f1f1f;
   --inputborder-color: #1f1f1f;
 }
-
 
 body {
   padding: 0;
@@ -40,7 +39,7 @@ body {
   padding: 20px;
 }
 
-#header{
+#header {
   display: flex;
   flex-direction: row;
   width: 377px;
@@ -53,7 +52,7 @@ body {
 #big-title {
   position: absolute;
   top: 50%;
-  left: 28%;
+  left: 22%;
   text-align: center;
   font-size: 28px;
   font-weight: 600;
@@ -61,20 +60,26 @@ body {
   color: var(--title-color);
 }
 
-#container {
-  width: 377px;
-  background-color: var(--container-background);
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  flex-direction: column; 
-  margin-top: 50px; 
-  height: auto; 
-  padding: 20px; 
-  box-sizing: border-box; 
-  border-radius: 10px;
+#leaf-svg {
+  position: absolute;
+  top: 50%;
+  left: 72%;
 }
 
+#container {
+  width: 377px;
+  height: auto;
+  background-color: var(--container-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
 
 #upper-section {
   width: 345px;
@@ -96,7 +101,6 @@ body {
   width: 345px;
   height: 38px;
   gap: 6px;
-
 }
 
 #input-box {
@@ -105,7 +109,7 @@ body {
   height: 36px;
   border-radius: 6px;
   border: 1px solid var(--listborderradius-color);
-  background-color:   var(--listcontainer-back);
+  background-color: var(--listcontainer-back);
   color: var(--title-color);
 }
 
@@ -113,8 +117,6 @@ body {
   border-color: var(--listborderradius-color);
   box-shadow: none;
 }
-
-
 
 #add-button {
   width: 60px;
@@ -153,7 +155,6 @@ body {
   background-color: var(--buttoncolor-blue);
   color: var(--buttoncolor-white);
 }
-
 
 #task-list-container {
   width: 345px;
@@ -196,20 +197,25 @@ body {
 
 #delete-button {
   position: absolute;
-border: none;
+  border: none;
   background-color: transparent;
   left: 85%;
   top: 30%;
   transition: 0.3s;
 }
 
-#delete-button:hover{
+#delete-button:hover {
   transform: scale(1.2);
 }
 
 #number-of-tasks-section {
-  width: 347px;
-  height: 17px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #number-of-task {
@@ -217,8 +223,9 @@ border: none;
   color: #6b7280;
   font-size: 14px;
   font-weight: 500;
-  margin-top: 40px;
+  margin: 0;
 }
+
 
 #lower-section {
   width: 345px;
@@ -230,19 +237,25 @@ border: none;
   color: #000;
 }
 
+#clearCompleted-button {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ef4444;
+  background-color: transparent;
+}
 
 button {
   background-color: var(--button-background);
   color: var(--button-text-color);
   border: none;
   border-radius: 6px;
-
 }
 
-#theme-switch {
-background-color: transparent;
-position: absolute;
-top: 50%;
-left: 90%;
 
+#theme-switch {
+  background-color: transparent;
+  position: absolute;
+  top: 55%;
+  left: 90%;
 }
