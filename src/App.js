@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
+import moment from "moment";
+moment().format();
 
 const todos = {
   text: "do homework",
   status: "ACTIVE" | "COMPLETED",
   id: 1,
 };
+
+const log = {};
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -17,6 +21,8 @@ function App() {
   const [filterState, setFilterState] = useState("All");
   const [deleteTask, setDeleteTask] = useState();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [log, setLog] = useState([]);
+
 
   // Theme switch
   const toggleTheme = () => {
@@ -24,11 +30,14 @@ function App() {
     document.body.classList.toggle("darkmode", !isDarkMode);
   };
 
+
   // Task status filter
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
+
+  // Add button function
   const handleAddButtonClick = () => {
     if (inputValue.length === 0) {
       setError("Please Enter Task");
@@ -39,17 +48,31 @@ function App() {
         ...todos,
         { text: inputValue, id: uuidv4(), status: "ACTIVE" },
       ]);
+      const newTask = { text: inputValue, id: uuidv4(), status: "ACTIVE" };
+      setTodos([...todos, newTask]);
       setInputValue("");
       setNumberOfTasks(numberOfTasks + 1);
+      setLog([
+        ...log,
+        {
+          taskId: newTask.id,
+          text: inputValue,
+          logs: [{ status: "ACTIVE", timestamp: moment() }],
+        },
+      ]);
     }
   };
 
+
+  // Add task when press "Enter"
   const handlePressKey = (event) => {
     if (event.key === "Enter") {
       handleAddButtonClick();
     }
   };
 
+
+  // Checkbox functionality
   const handleCheckBox = (event) => {
     if (event.target.checked) {
       setNumberOfCompletedTasks(numOfCompletedTasks + 1);
@@ -58,6 +81,8 @@ function App() {
     }
   };
 
+
+  // Handlebox
   const handleBox = (id) => {
     const newTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -82,7 +107,6 @@ function App() {
 
   // Delete task logic
   const handleDeleteTask = (id) => {
-
     const currentTodos = todos.filter((todo) => todo.id !== id);
 
     setTodos(currentTodos);
@@ -95,16 +119,13 @@ function App() {
     }
   };
 
-
   // Clearcompleted
-
   const handleClearCompleted = () => {
     const activeTodos = todos.filter((todo) => todo.status !== "COMPLETED");
     setTodos(activeTodos);
     setNumberOfTasks(activeTodos.length);
     setNumberOfCompletedTasks(0);
   };
-  
 
   return (
     <div>
@@ -196,6 +217,14 @@ function App() {
           >
             Completed
           </button>
+          <button
+            id="view-log-button"
+            onClick={() => setFilterState("LOG")}
+            className={filterState === "LOG" ? "active-filter" : ""}
+            style={{ cursor: "pointer" }}
+          >
+            View Log
+          </button>
         </div>
 
         <div id="task-list-container">
@@ -244,6 +273,26 @@ function App() {
             ))}
         </div>
 
+        {filterState === "LOG" && (
+ <div>
+            {log.length === 0 ? (
+              <p>No actions logged yet.</p>
+            ) : (
+              <div >
+              {log.map((entry, index) => (
+                         <div id="log-container">
+                  <p>
+                    <strong>{entry.text}</strong> - added{" "}
+                    {moment(entry.timestamp).fromNow()}
+                  </p>
+                </div>
+              ))}
+              </div>
+
+            )}
+            </div>
+        )}
+
         <div id="number-of-tasks-section">
           {numberOfTasks === 0 ? (
             <p id="number-of-task">No tasks yet. Add one above!</p>
@@ -252,21 +301,22 @@ function App() {
               {numOfCompletedTasks} of {numberOfTasks} tasks completed
             </p>
           )}
-          <button id="clearCompleted-button"   onClick={handleClearCompleted}>Clear Completed</button>
+          <button id="clearCompleted-button" onClick={handleClearCompleted}>
+            Clear Completed
+          </button>
         </div>
         <div id="poweredBy-section">
-  <p id="developedby-text">
-    Developed by
-    <a
-      href="https://github.com/Bat-World"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-    <button id="github-icon">Bat-World</button>
-    </a>
-  </p>
-</div>
-
+          <p id="developedby-text">
+            Developed by
+            <a
+              href="https://github.com/Bat-World"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button id="github-icon">Bat-World</button>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

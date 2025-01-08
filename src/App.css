@@ -279,7 +279,8 @@ button {
   color: var(--buttoncolor-blue);
   background-color: transparent;
   border: none;
-  margin-left: 10px;
+  margin-left: 0;
+  cursor: pointer;
 }
 
 
@@ -291,4 +292,22 @@ button {
   position: absolute;
   top: 55%;
   left: 90%;
+}
+
+#log-container {
+  width: 345px;
+  height: 62px;
+  background-color: var(--listcontainer-back);
+  border: 1px solid var(--listborderradius-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+.log-entry {
+  margin-bottom: 8px;
+  color: var(--title-color);
+  margin-left: 10px;
 }
