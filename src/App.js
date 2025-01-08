@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import moment from "moment";
+import Filter from "./Components/Filter";
 moment().format();
+
 
 const todos = {
   text: "do homework",
@@ -10,7 +12,7 @@ const todos = {
   id: 1,
 };
 
-const log = {};
+
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -101,9 +103,7 @@ function App() {
     setNumberOfCompletedTasks(completedCount);
   };
 
-  const handleFilterState = (state) => {
-    setFilterState(state);
-  };
+
 
   // Delete task logic
   const handleDeleteTask = (id) => {
@@ -192,40 +192,8 @@ function App() {
             </button>
           </div>
         </div>
-        <div id="task-states-section">
-          <button
-            id="all-tasks-button"
-            onClick={() => handleFilterState("All")}
-            className={filterState === "All" ? "active-filter" : ""}
-            style={{ cursor: "pointer" }}
-          >
-            All
-          </button>
-          <button
-            id="active-tasks-button"
-            onClick={() => handleFilterState("ACTIVE")}
-            className={filterState === "ACTIVE" ? "active-filter" : ""}
-            style={{ cursor: "pointer" }}
-          >
-            Active
-          </button>
-          <button
-            id="completed-tasks-button"
-            onClick={() => handleFilterState("COMPLETED")}
-            className={filterState === "COMPLETED" ? "active-filter" : ""}
-            style={{ cursor: "pointer" }}
-          >
-            Completed
-          </button>
-          <button
-            id="view-log-button"
-            onClick={() => setFilterState("LOG")}
-            className={filterState === "LOG" ? "active-filter" : ""}
-            style={{ cursor: "pointer" }}
-          >
-            View Log
-          </button>
-        </div>
+
+      <Filter setFilterState={setFilterState}/>
 
         <div id="task-list-container">
           {todos
