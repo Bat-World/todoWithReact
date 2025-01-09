@@ -130,6 +130,15 @@ body {
   transition: 0.3s;
 }
 
+#task-states-section {
+  width: 100%;
+  height: auto;
+  background-color: var(--container-background);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 #add-button:hover {
   transform: scale(1.1);
 }
@@ -159,15 +168,20 @@ body {
 }
 
 #task-list-container {
-  width: 345px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  background-color: var(--container-background);
+  justify-content: center;
 }
 
+#invisible-one{
+  background-color: var(--container-background);
+  width: 100%;
+  height: auto;
+}
 #list-container {
-  width: 345px;
+  width: 90%;
   height: 62px;
   background-color: var(--listcontainer-back);
   border: 1px solid var(--listborderradius-color);
@@ -175,6 +189,8 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  margin-top: 20px;
+  margin-left: 15px;
 }
 
 #check-box {
@@ -197,6 +213,14 @@ body {
   color: var(--title-color);
 }
 
+#taskName-list {
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  color: var(--title-color);
+}
+
+
 #delete-button {
   position: absolute;
   border: none;
@@ -212,7 +236,6 @@ body {
 
 #number-of-tasks-section {
   width: 100%;
-  margin-top: 20px;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -295,19 +318,44 @@ button {
 }
 
 #log-container {
-  width: 345px;
-  height: 62px;
-  background-color: var(--listcontainer-back);
-  border: 1px solid var(--listborderradius-color);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  position: relative;
+    width: 90%;
+    height: 62px;
+    background-color: var(--listcontainer-back);
+    border: 1px solid var(--listborderradius-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 15px;
 }
+
+#logname-list{
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  color: var(--title-color);
+  margin: 0;
+} 
 
 
 .log-entry {
   margin-bottom: 8px;
   color: var(--title-color);
   margin-left: 10px;
+}
+
+/* #time-text{
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+} */
+
+#footer{
+  background-color: var(--container-background);
+  padding: 20px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
