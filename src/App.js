@@ -7,14 +7,14 @@ import Header from "./Components/Header";
 import UpperSection from "./Components/UpperSection";
 
 function App() {
+  const [log, setLog] = useState([]);
+  const [error, setError] = useState("");
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-  const [numberOfTasks, setNumberOfTasks] = useState(0);
-  const [numOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
-  const [filterState, setFilterState] = useState("All");
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [log, setLog] = useState([]);
+  const [numberOfTasks, setNumberOfTasks] = useState(0);
+  const [filterState, setFilterState] = useState("All");
+  const [numOfCompletedTasks, setNumberOfCompletedTasks] = useState(0);
 
   const handleDeleteTask = (id) => {
     const currentTodos = todos.filter((todo) => todo.id !== id);
@@ -33,30 +33,30 @@ function App() {
       <UpperSection
         log={log}
         error={error}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        setError={setError}
         todos={todos}
-        setTodos={setTodos}
         setLog={setLog}
+        setTodos={setTodos}
+        setError={setError}
+        inputValue={inputValue}
         numberOfTasks={numberOfTasks}
+        setInputValue={setInputValue}
         setNumberOfTasks={setNumberOfTasks}
       />
       <Filter setFilterState={setFilterState} />
       <List
         log={log}
         todos={todos}
+        setTodos={setTodos}
         filterState={filterState}
         handleDeleteTask={handleDeleteTask}
         setNumberOfCompletedTasks={setNumberOfCompletedTasks}
-        setTodos={setTodos}
       />
       <Footer
         todos={todos}
         setTodos={setTodos}
         numberOfTasks={numberOfTasks}
-        numOfCompletedTasks={numOfCompletedTasks}
         setNumberOfTasks={setNumberOfTasks}
+        numOfCompletedTasks={numOfCompletedTasks}
         setNumberOfCompletedTasks={setNumberOfCompletedTasks}
       />
     </div>

@@ -4,10 +4,6 @@ const Filter = (props) => {
   const {
     filterState,
     setFilterState,
-    todos,
-    setTodos,
-    numOfCompletedTasks,
-    setNumberOfCompletedTasks,
   } = props;
   const handleFilterState = (state) => {
     setFilterState(state);
