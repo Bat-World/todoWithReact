@@ -198,6 +198,7 @@ body {
   position: absolute;
   left: 3%;
   top: 40%;
+  cursor: pointer;
 }
 
 #check-box:focus {

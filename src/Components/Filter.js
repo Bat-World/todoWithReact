@@ -34,7 +34,7 @@ const Filter = (props) => {
       <Button
         handleEvent={() => setFilterState("LOG")}
         id={"view-log-button"}
-        title={"View Log"}
+        title={"View Log"} 
         className={filterState === "LOG" ? "active-filter" : ""}
       />
     </div>
